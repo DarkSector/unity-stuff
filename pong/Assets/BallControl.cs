@@ -21,9 +21,9 @@ public class BallControl : MonoBehaviour {
 	void GoBall() {
 		float rand =  Random.Range(0, 2);
 		if (rand < 1) {
-			rb2d.AddForce(new Vector2(20, -15));
+			rb2d.AddForce(new Vector2(200, -200));
 		} else {
-			rb2d.AddForce(new Vector2(-20, 15));
+			rb2d.AddForce(new Vector2(-200, 150));
 		}
 	}
 
@@ -39,5 +39,10 @@ public class BallControl : MonoBehaviour {
 			vel.y = (rb2d.velocity.y / 2) + (coll.collider.attachedRigidbody.velocity.y / 3);
 			rb2d.velocity = vel;
 		}
+	}
+
+	void RestartGame() {
+		ResetBall ();
+		Invoke ("GoBall", 1);
 	}
 }
