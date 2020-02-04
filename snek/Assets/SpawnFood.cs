@@ -13,7 +13,7 @@ public class SpawnFood : MonoBehaviour {
     void Start()
     {
 
-        InvokeRepeating("Spawn", 3, 4);
+        Invoke("Spawn", 3);
         
     }
 

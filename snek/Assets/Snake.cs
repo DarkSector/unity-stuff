@@ -73,7 +73,11 @@ public class Snake : MonoBehaviour
             Destroy(coll.gameObject);
         }
 
-        else {
+        else if (coll.name.StartsWith("TailPrefab")) {
+            // that's where you lose
+        }
+
+        // also gotta account for the borders
 
         }
     }
