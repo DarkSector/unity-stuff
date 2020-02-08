@@ -207,6 +207,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9ff1d5f396d54321884b7b153f4ed94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_OrthographicCamera: {fileID: 321297673}
+  leftBorderPosition: 0
+  rightBorderPosition: 0
 --- !u!1 &1064775604
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,6 +609,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb2d: {fileID: 0}
   speed: 10
-  m_OrthographicCamera: {fileID: 321297673}
-  leftBorderPosition: 0
-  rightBorderPosition: 0

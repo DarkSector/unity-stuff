@@ -9,17 +9,15 @@ public class PlayerControl : MonoBehaviour
     KeyCode moveLeft = KeyCode.LeftArrow;
     KeyCode moveRight = KeyCode.RightArrow;
     // Start is called before the first frame update
-    public Camera m_OrthographicCamera;
-    public float leftBorderPosition;
-    public float rightBorderPosition;
+    private float leftBorderPosition;
+    private float rightBorderPosition;
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        float height = 2f * m_OrthographicCamera.orthographicSize;
-        float width = height * m_OrthographicCamera.aspect;
-
-        float leftBorderPosition = -1f * (width / 2) + 0.5f; 
-        float rightBorderPosition = width / 2 - 0.5f;
+        GameObject myCamera = GameObject.Find("Main Camera");
+        SpawnBlockMap spawnBlockMap = myCamera.GetComponent<SpawnBlockMap>();
+        leftBorderPosition =  spawnBlockMap.leftBorderPosition;
+        rightBorderPosition = spawnBlockMap.rightBorderPosition;
     }
 
     // Update is called once per frame
@@ -35,7 +33,6 @@ public class PlayerControl : MonoBehaviour
 		{
 			pos.x += 0.5f;
 		}
-
         rb2d.position = pos;
 
     }
