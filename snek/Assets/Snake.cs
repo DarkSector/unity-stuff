@@ -9,7 +9,7 @@ public class Snake : MonoBehaviour
     Vector2 dir = Vector2.right;
     List<Transform> tail = new List<Transform>();
 
-    bool ate = false;
+    public bool ate = false;
 
     public GameObject tailPrefab;
 
@@ -34,7 +34,6 @@ public class Snake : MonoBehaviour
             dir = Vector2.up;
         }
 
-        
     }
 
     void Move() {

@@ -12,8 +12,12 @@ public class SpawnFood : MonoBehaviour {
     // Start is called before the first frame update
     void Start()
     {
+        Invoke("Spawn", 3);
+    }
 
-        InvokeRepeating("Spawn", 3, 4);
+    void Update() {
+
+
         
     }
 
