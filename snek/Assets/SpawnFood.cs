@@ -18,6 +18,10 @@ public class SpawnFood : MonoBehaviour {
     void Update() {
 
 
+<<<<<<< HEAD
+=======
+        Invoke("Spawn", 3);
+>>>>>>> c026084ab4a5e4e9d2c8e5b3926d4a037302c035
         
     }
 
