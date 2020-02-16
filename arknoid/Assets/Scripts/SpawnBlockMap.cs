@@ -16,11 +16,15 @@ public class SpawnBlockMap : MonoBehaviour
     public float rightBorderPosition;
     // Start is called before the first frame update
     public GameObject BlockPrefab;
+
+    public int blockRows; // number of rows of blocks
+
+
     void Start()
-    {   
-        // Initialize the camera and populate the other variables
-        
-        Debug.Log("rightBorderPosition: "+  rightBorderPosition);
+    {
+ 
+
+        SpawnBlocks();
     }
 
     // Update is called once per frame
@@ -30,15 +34,37 @@ public class SpawnBlockMap : MonoBehaviour
     }
 
     void SpawnBlocks() {
-        int x = 0;
-        int y = 0;
-        Instantiate(BlockPrefab, new Vector2(x, y), Quaternion.identity);
+
+        // block size
+        float blockSizeX = BlockPrefab.transform.GetComponent<SpriteRenderer>().bounds.size.x;
+        float blockSizeY = BlockPrefab.transform.GetComponent<SpriteRenderer>().bounds.size.y;
+        
+        float blockSizeXHalf = blockSizeX / 2;
+        float blockSizeYHalf = blockSizeY / 2;
+
+        Dictionary<string, float> borderPosition = getBorderPositions();
+
+        float leftBorderPosition = borderPosition["left"];
+        float rightBorderPosition = borderPosition["right"];
+        
+        float cameraWidth = borderPosition["width"];
+        float cameraHeight = borderPosition["height"];
+
+        float blockCount = cameraWidth / blockSizeX;
+
+        Debug.Log("Cameraheight " + cameraHeight);
+        
+        for (int i = 0; i < blockCount; ++i ) {
+            float x = leftBorderPosition + 5 + blockSizeX/2;
+            float y = cameraHeight / 4;
+            Instantiate(BlockPrefab, new Vector2(x, y), Quaternion.identity);
+        }
     }
 
     
-    public Dictionary<string, float> getLeftBorderPositions () {
+    public Dictionary<string, float> getBorderPositions () {
 
-        m_OrthographicCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        // m_OrthographicCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
         
         float height = 2f * m_OrthographicCamera.orthographicSize;
         float width = height * m_OrthographicCamera.aspect;
@@ -46,7 +72,12 @@ public class SpawnBlockMap : MonoBehaviour
         float leftBorderPosition = -1f * (width / 2); 
         float rightBorderPosition = width / 2;
         
-        var positionDict = new Dictionary<string, float> { {"left", leftBorderPosition}, {"right", rightBorderPosition} };
+        var positionDict = new Dictionary<string, float> { 
+            {"left", leftBorderPosition}, 
+            {"right", rightBorderPosition},
+            {"height", height},
+            {"width", width}
+        };
 
         return positionDict;
     }
