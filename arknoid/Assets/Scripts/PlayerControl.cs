@@ -15,17 +15,11 @@ public class PlayerControl : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         GameObject myCamera = GameObject.Find("Main Camera");
-        Debug.Log("game object camera: " + myCamera.tag);
-
         SpawnBlockMap spawnBlockMap = myCamera.GetComponent<SpawnBlockMap>();
 
-        Dictionary<string, float> borderPositions =  spawnBlockMap.getLeftBorderPositions();
+        Dictionary<string, float> borderPositions =  spawnBlockMap.getBorderPositions();
 
         float leftBorderPosition = borderPositions["left"];
-        float rightBorderPosition = borderPositions["right"];
-
-        Debug.Log("leftBorderPosition: " +  leftBorderPosition);
-        Debug.Log("rightBorderPosition: " + rightBorderPosition);
 
     }
 
