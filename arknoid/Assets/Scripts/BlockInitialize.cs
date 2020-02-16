@@ -11,6 +11,7 @@ public class BlockInitialize : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         Block.GetComponent<SpriteRenderer>().color = Random.ColorHSV();
     }
 }
