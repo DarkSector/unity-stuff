@@ -10,7 +10,9 @@ public class BlockInitialize : MonoBehaviour
     public GameObject Block;
     // Start is called before the first frame update
     void Start()
-    {
+    {   
+        // gameObject is self
+        // GameObject is type
         gameObject.GetComponent<SpriteRenderer>().color = Random.ColorHSV();
     }
 }
