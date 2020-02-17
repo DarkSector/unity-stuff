@@ -22,8 +22,6 @@ public class SpawnBlockMap : MonoBehaviour
 
     void Start()
     {
- 
-
         SpawnBlocks();
     }
 
@@ -54,11 +52,11 @@ public class SpawnBlockMap : MonoBehaviour
 
         Debug.Log("Cameraheight " + cameraHeight);
         
+        float lastY = cameraHeight/5;
 
-        for (int j = 0; j < blockRows; j++ ) {
+        for (int j = 0; j < blockRows; j++) {
             
             float lastX = leftBorderPosition + 1 + blockSizeX/2;
-            float lastY = cameraHeight / 4 - 1;
         
             for (int i = 0; i < blockCount; ++i ) {
                 
@@ -67,10 +65,11 @@ public class SpawnBlockMap : MonoBehaviour
                 lastX += blockSizeX + 1;
             }
 
+            lastY -= blockSizeYHalf - 5;
+
         }
         
     }
-
     
     public Dictionary<string, float> getBorderPositions () {
 

@@ -212,6 +212,7 @@ MonoBehaviour:
   rightBorderPosition: 0
   BlockPrefab: {fileID: 1413045909023927249, guid: 125c5615c8fba5441aa1c759ca6ebcef,
     type: 3}
+  blockRows: 5
 --- !u!1 &1064775604
 GameObject:
   m_ObjectHideFlags: 0
