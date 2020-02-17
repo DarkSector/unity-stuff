@@ -54,11 +54,21 @@ public class SpawnBlockMap : MonoBehaviour
 
         Debug.Log("Cameraheight " + cameraHeight);
         
-        for (int i = 0; i < blockCount; ++i ) {
-            float x = leftBorderPosition + 5 + blockSizeX/2;
-            float y = cameraHeight / 4;
-            Instantiate(BlockPrefab, new Vector2(x, y), Quaternion.identity);
+
+        for (int j = 0; j < blockRows; j++ ) {
+            
+            float lastX = leftBorderPosition + 1 + blockSizeX/2;
+            float lastY = cameraHeight / 4 - 1;
+        
+            for (int i = 0; i < blockCount; ++i ) {
+                
+                float y = cameraHeight / 4;
+                Instantiate(BlockPrefab, new Vector2(lastX, lastY), Quaternion.identity);
+                lastX += blockSizeX + 1;
+            }
+
         }
+        
     }
 
     
